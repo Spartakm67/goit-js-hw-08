@@ -11,9 +11,10 @@ player.on('timeupdate', throttle(({ seconds }) => {
     localStorage.setItem(PLAYBACK_TIME, seconds);
 }, 1000));
 
-try {
-  player.setCurrentTime(JSON.parse(localStorage.getItem(PLAYBACK_TIME)));
-} catch (error) {
-  player.setCurrentTime(0);
-};
+// try {
+//   player.setCurrentTime(JSON.parse(localStorage.getItem(PLAYBACK_TIME)));
+// } catch (error) {
+//   player.setCurrentTime(0);
+// };
 
+player.setCurrentTime(JSON.parse(localStorage.getItem(PLAYBACK_TIME)) || 0);
