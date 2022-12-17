@@ -38,8 +38,8 @@ function loadPage() {
 function resetFormAndStorage(event) { 
   event.preventDefault();
   
-  const emailSubmit = event.currentTarget.email.value;
-  const messageSubmit = event.currentTarget.message.value;
+  const emailSubmit = event.target.email.value;
+  const messageSubmit = event.target.message.value;
     if (emailSubmit || messageSubmit) {
         
       console.log({emailSubmit, messageSubmit});
