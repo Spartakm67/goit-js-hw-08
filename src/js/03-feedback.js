@@ -44,7 +44,8 @@ function loadPage() {
 
 function resetFormAndStorage(event) { 
   event.preventDefault();
-
+  let emailSubmit;
+  let messageSubmit;
   emailSubmit = event.currentTarget.elements.email.value;
   messageSubmit = event.currentTarget.elements.message.value;
     if (emailSubmit || messageSubmit) {
