@@ -16,14 +16,14 @@ const formData = {
 loadPage();
 
 function saveFeedbackMessage(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
-      const {
-        elements: { email, message }
-    } = event.currentTarget;
+    //   const {
+    //     elements: { email, message }
+    // } = event.currentTarget;
     
-    formData.email = email.value;
-    formData.message = message.value;
+    formData.email = form.elements.email.value;
+    formData.message = form.elements.message.value;
   
   console.log(formData);
   
