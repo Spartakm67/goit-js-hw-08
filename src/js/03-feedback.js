@@ -5,9 +5,14 @@ const form = document.querySelector('.feedback-form');
 const FEEDBACK_KEY = "feedback-form-state";
 form.addEventListener('input', throttle(saveFeedbackMessage, 500));
 form.addEventListener('submit', resetFormAndStorage);
+let email;
+let message;
+  
+const formData = {
+  email,
+  message,
+};
 
-let formData = {};
-const formDataAddStorage = () => localStorage.setItem(FEEDBACK_KEY, JSON.stringify(formData));
 loadPage();
 
 function saveFeedbackMessage(event) {
@@ -19,9 +24,11 @@ function saveFeedbackMessage(event) {
     
     formData.email = email.value;
     formData.message = message.value;
-    console.log(formData);
+  
+  console.log(formData);
+  
+    localStorage.setItem(FEEDBACK_KEY, JSON.stringify(formData));
     
-    formDataAddStorage();
     
     console.log(localStorage);
 };
@@ -37,12 +44,12 @@ function loadPage() {
 
 function resetFormAndStorage(event) { 
   event.preventDefault();
-  
-  const emailSubmit = event.target.email.value;
-  const messageSubmit = event.target.message.value;
+
+  emailSubmit = event.currentTarget.elements.email.value;
+  messageSubmit = event.currentTarget.elements.message.value;
     if (emailSubmit || messageSubmit) {
         
-      console.log({emailSubmit, messageSubmit});
+      console.log({emailSubmit, messageSubmit});  
 
         form.reset();
         localStorage.removeItem(FEEDBACK_KEY);
